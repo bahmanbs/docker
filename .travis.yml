@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t pixilands/docker -f Dockerfile.dev .
+
+script:
+  - docker run pixilands/docker npm run test -- --coverage
+  
